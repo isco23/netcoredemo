@@ -16,6 +16,7 @@ namespace NetCoreDemo
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,23 +31,7 @@ namespace NetCoreDemo
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    if (env.IsDevelopment())
-                    {
-                        await context.Response.WriteAsync("Hello From Dev");
-                    }
-                    else if (env.IsProduction())
-                    {
-                        await context.Response.WriteAsync("Hello From Production");
-                    }
-                    else if (env.IsStaging())
-                    {
-                        await context.Response.WriteAsync("Hello From Stage");
-                    } 
-                    else
-                        await context.Response.WriteAsync(env.EnvironmentName);
-                });
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
