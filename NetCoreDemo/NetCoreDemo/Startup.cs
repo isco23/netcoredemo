@@ -30,17 +30,22 @@ namespace NetCoreDemo
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.Map("/", async context =>
+                endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-            });
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.Map("/isco", async context =>
-                {
-                    await context.Response.WriteAsync("Hello Isco!");
+                    if (env.IsDevelopment())
+                    {
+                        await context.Response.WriteAsync("Hello From Dev");
+                    }
+                    else if (env.IsProduction())
+                    {
+                        await context.Response.WriteAsync("Hello From Production");
+                    }
+                    else if (env.IsStaging())
+                    {
+                        await context.Response.WriteAsync("Hello From Stage");
+                    } 
+                    else
+                        await context.Response.WriteAsync(env.EnvironmentName);
                 });
             });
         }
