@@ -18,6 +18,7 @@ namespace NetCoreDemo.Controllers
             return View();
         }
 
+        // Add from New NextBranch
         public IActionResult Details()
         {
             return View();
