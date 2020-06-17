@@ -17,6 +17,8 @@ namespace NetCoreDemo.Controllers
         {
             return View();
         }
+
+        // Comment From Master
         public IActionResult Menu()
         {
             return View();
