@@ -12,5 +12,10 @@ namespace NetCoreDemo.Controllers
         {
             return "Hello";
         }
+
+        public IActionResult About()
+        {
+            return View();
+        }
     }
 }
