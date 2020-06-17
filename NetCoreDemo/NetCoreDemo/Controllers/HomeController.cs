@@ -20,6 +20,6 @@ namespace NetCoreDemo.Controllers
         public IActionResult Menu()
         {
             return View();
-        }
+        }       
     }
 }
